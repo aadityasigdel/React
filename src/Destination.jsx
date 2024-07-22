@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import Nav from "./Nav";
 
 function Destination() {
     const [current, setCurrent] = useState([]);
@@ -8,7 +8,6 @@ function Destination() {
         const datacollection = async () => {
             const response = await fetch("http://localhost:3000/destination");
             const data = await response.json();
-            console.log(data);
             setCurrent(data);
         };
         datacollection();
@@ -20,7 +19,6 @@ function Destination() {
         const datacollectionforhotels = async () => {
             const response = await fetch("http://localhost:3000/hotels");
             const data = await response.json();
-            console.log(data);
             setCurrentforhotels(data.slice(0, 4));
         };
         datacollectionforhotels();
@@ -34,7 +32,6 @@ function Destination() {
                 "http://localhost:3000/travelPackages"
             );
             const data = await response.json();
-            console.log(data);
             setCurrentfortravels(data);
         };
         datacollectionfortravels();
@@ -50,7 +47,6 @@ function Destination() {
                 "http://localhost:3000/thingsToDo"
             );
             const data = await response.json();
-            console.log("here:", data);
             setCurrentfortopDestinations(data);
         };
         datacollectionfortopDestinations();
@@ -58,7 +54,6 @@ function Destination() {
 
     const [counter, setcount] = useState(0);
     const img1 = current[counter];
-    console.log(img1);
 
     useEffect(() => {
         if (img1 === undefined) {
@@ -77,35 +72,7 @@ function Destination() {
     return (
         <>
             <div className="">
-                <div className="overflow-hidden ">
-                    <div className="flex justify-evenly items-center ml-5 w-full h-s">
-                        <h1 className="text-3xl font-bold text-blue-600 mt-5">
-                            <Link to="/">WanderMate</Link>
-                        </h1>
-                        <ul className="mt-5 flex justify-evenly w-full">
-                            <li className="text-xl font-bold">
-                                <Link to="/home"> Home</Link>
-                            </li>
-                            <li className="text-xl font-bold">
-                                <Link to="/destination">Destination</Link>
-                            </li>
-                            <li className="text-xl font-bold">
-                                <Link to="/travel">Travel package</Link>
-                            </li>
-                            <li className="text-xl font-bold">
-                                <Link to="/hotel">Hotels</Link>
-                            </li>
-                        </ul>
-                        <Link to="/profile">
-                        <div className="rounded-full bg-green-700 w-14 h-14 mr-5">
-                            <img
-                                src="src/assets/userProfile.jpg"
-                                alt="User Profile"
-                            />
-                        </div>
-                        </Link>
-                    </div>
-                </div>
+                <Nav/>
 
                 <div key={img1.id} className="overflow-hidden">
                     <div className="w-full h-im pl-16 pr-16 pt-10 relative overflow-hidden ">
@@ -147,35 +114,35 @@ function Destination() {
 
                 <div className="overflow-hidden font-semibold">
                     <h1 className="ml-16">Things To DO</h1>
-                    <div className="flex h-96 w-full justify-center mr-16 ml-16 mb-8 ">
+                    <div className="flex h-96 w-full justify-center mr-16 ml-16 mb-8 text-xl  font-semibold">
                         {currentfortopDestinations.map((dest) => (
                             <div
                                 key={dest.id}
-                                className="text-md h-full w-1/5  flex  flex-row mr-8 "
+                                className="text-md h-full w-1/5  flex  flex-row mr-8 text-xl my-4 "
                             >
-                                <p>
+                                <div>
                                     <img
                                         src={dest.img}
-                                        className="h-full w-mp"
+                                        className="h-full w-mp rounded-xl"
                                         alt=""
                                     />
                                     <p>{dest.price}</p>
-                                </p>
+                                </div>
                             </div>
                         ))}
                     </div>
 
                     <h1 className="ml-16">Top Hotels</h1>
-                    <div className="flex h-96 w-full justify-center mr-16 ml-16 mb-8 ">
+                    <div className="flex h-96 w-full justify-center mr-16 ml-16 mb-8  text-xl  font-semibold">
                         {currentforhotels.map((hos) => (
                             <div
                                 key={hos.id}
-                                className="text-md h-full w-1/5 flex  flex-row mr-8"
+                                className="text-md h-full w-1/5  flex  flex-row mr-8 text-xl my-4 "
                             >
                                 <p>
                                     <img
                                         src={hos.img}
-                                        className="h-full w-mp"
+                                        className="h-full w-mp rounded-xl"
                                         alt=""
                                     />
                                 </p>
@@ -184,16 +151,16 @@ function Destination() {
                     </div>
 
                     <h1 className="ml-16">Top Travel Pakages</h1>
-                    <div className="flex h-96 w-full justify-center mr-16 ml-16 mb-8 ">
+                    <div className="flex h-96 w-full justify-center mr-16 ml-16 mb-8  text-xl  font-semibold">
                         {currentfortravels.map((hostrav) => (
                             <div
                                 key={hostrav.id}
-                                className="text-md h-full w-1/5 flex  flex-row mr-8"
+                                className="text-md h-full w-1/5  flex  flex-row mr-8 text-xl my-4 "
                             >
                                 <p>
                                     <img
                                         src={hostrav.img}
-                                        className="h-full w-mp "
+                                        className="h-full w-mp rounded-xl"
                                         alt=""
                                     />
                                 </p>

@@ -9,6 +9,8 @@ import Hotel from "./Hotel"
 import Homedetail from "./Homedetail"
 import TravelDetails from "./TravelDetails"
 import Profile from "./Profile"
+import admin from "./Admin"
+import Admin from "./Admin"
 
 function App() {
 
@@ -27,6 +29,7 @@ function App() {
             <Route path="/Hotels/:id" element={<Homedetail />} />
             <Route path="/travels/:id" element={<TravelDetails />} />
             <Route path="/profile" element={<Profile />}/>
+            <Route path='/admin/*' element={<Admin/>}/>
         </Routes>
         </BrowserRouter>
     </>

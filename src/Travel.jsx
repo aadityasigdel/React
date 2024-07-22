@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import Nav from "./Nav";
 
 export default function Travel() {
     const [currentfortravels, setCurrentfortravels] = useState([]);
@@ -12,7 +13,7 @@ export default function Travel() {
                 "http://localhost:3000/travelPackages"
             );
             const data = await response.json();
-            console.log(data);
+            
             setCurrentfortravels(data);
         };
         datacollectionfortravels();
@@ -21,35 +22,7 @@ export default function Travel() {
     return (
         <div>
             <div>
-                <div className="overflow-hidden ">
-                    <div className="flex justify-evenly items-center ml-5 w-full h-s">
-                        <h1 className="text-3xl font-bold text-blue-600 mt-5">
-                            <Link to="/">WanderMate</Link>
-                        </h1>
-                        <ul className="mt-5 flex justify-evenly w-full">
-                            <li className="text-xl font-bold">
-                                <Link to="/home"> Home</Link>
-                            </li>
-                            <li className="text-xl font-bold">
-                                <Link to="/destination">Destination</Link>
-                            </li>
-                            <li className="text-xl font-bold">
-                                <Link to="/travel">Travel package</Link>
-                            </li>
-                            <li className="text-xl font-bold">
-                                <Link to="/hotel">Hotels</Link>
-                            </li>
-                        </ul>
-                        <Link to="/profile">
-                            <div className="rounded-full bg-green-700 w-14 h-14 mr-5">
-                                <img
-                                    src="src/assets/userProfile.jpg"
-                                    alt="User Profile"
-                                />
-                            </div>
-                        </Link>
-                    </div>
-                </div>
+                <Nav/>
             </div>
             <div className="full m-5">
                 {currentfortravels.map((travel) => (
