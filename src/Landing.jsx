@@ -11,9 +11,6 @@ export default function Landing() {
                 <div className="flex justify-around w-1/2 mt-5 ">
                     <ul className="flex justify-evenly w-full text-2xl font-semibold font-serif  text-black">
                         <li>
-                            <Link to="/home"> Home</Link>
-                        </li>
-                        <li>
                         About
                             
                         </li>

@@ -10,7 +10,7 @@ export default function Travel() {
     useEffect(() => {
         const datacollectionfortravels = async () => {
             const response = await fetch(
-                "http://localhost:3000/travelPackages"
+                "http://localhost:5072/NewProject/Travel"
             );
             const data = await response.json();
             
@@ -32,7 +32,7 @@ export default function Travel() {
                     >
                         <div className="w-1/2 h-96    ">
                             <img
-                                src={travel.img}
+                                src={travel.image}
                                 alt=""
                                 className="h-96  w-full"
                             />

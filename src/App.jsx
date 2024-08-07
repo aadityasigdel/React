@@ -9,8 +9,7 @@ import Hotel from "./Hotel"
 import Homedetail from "./Homedetail"
 import TravelDetails from "./TravelDetails"
 import Profile from "./Profile"
-import admin from "./Admin"
-import Admin from "./Admin"
+import Admin from "./AdminDashBoard/Admin"
 
 function App() {
 

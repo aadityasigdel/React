@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useEffect } from "react";
 import Nav from "./Nav";
 export default function Hotel() {
     const [currentfortravels, setCurrentfortravels] = useState([]);
 
     useEffect(() => {
         const datacollectionfortravels = async () => {
-            const response = await fetch("http://localhost:3000/hotels");
+            const response = await fetch("http://localhost:5072/NewProject/hotel");
             const data = await response.json();
+            console.log(data);
             setCurrentfortravels(data);
         };
         datacollectionfortravels();
@@ -22,7 +21,7 @@ export default function Hotel() {
                     <div className="flex flex-row h-1/4 justify-center items-center m-4 shadow-gray-500 shadow-md"  key={travel.id} >
                         <div className="w-1/2 h-96    ">
                             <img
-                                src={travel.img}
+                                src={travel.image}
                                 alt=""
                                 className="h-96  w-full"
                             />
